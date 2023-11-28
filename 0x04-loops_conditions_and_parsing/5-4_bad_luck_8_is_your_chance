@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+CNT=1
+while [ $CNT -lt 11 ]
+do
+	if [ $CNT == 4 ];then
+		echo "bad luck"
+	elif [ $CNT == 8 ];then
+		echo "good luck"
+	else
+		echo "Best School"
+	fi
+
+	(( CNT++ ))
+done
