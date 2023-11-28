@@ -1,11 +1,17 @@
 #!/usr/bin/env bash
+# Loops from 1 to 10 and displays:
+#   "bad luck" for the 4th iteration
+#   "good luck" for the 8th iteration
+#   "Best School" for all other iterations
 
 CNT=1
 while [ $CNT -lt 11 ]
 do
-	if [ $CNT == 4 ];then
+	if [ $CNT -eq 4 ];
+	then
 		echo "bad luck"
-	elif [ $CNT == 8 ];then
+	elif [ $CNT -eq 8 ];
+	then
 		echo "good luck"
 	else
 		echo "Best School"
