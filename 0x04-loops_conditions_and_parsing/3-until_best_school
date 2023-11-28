@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# display best school 10 times using until
+
+CNT=10
+until [ $CNT == 0 ]
+do
+	echo "Best School"
+	(( CNT -- ))
+done
