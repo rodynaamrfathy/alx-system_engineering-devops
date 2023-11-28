@@ -1,24 +1,30 @@
 #!/usr/bin/env bash
-# Loops from 1 to 10 and displays:
-#   "bad luck" for the 4th iteration
-#   "good luck" for the 8th iteration
+# Loops from 1 to 20 and displays:
+#   "bad luck from China" for the 4th iteration
+#   "bad luck from Japan" for the 9th iteration
+#   "bad luck from Italy" for the 17th iteration
 #   "Best School" for all other iterations
 
 CNT=1
-while [ $CNT -lt 21 ]
+while [ $CNT -le 20 ]
 do
-	echo "$CNT"
+	case $CNT in
 
-	if [ $CNT -eq 4 ];
-	then
+	4)
+		echo "$CNT"
 		echo "bad luck from China"
-	elif [ $CNT -eq 9 ];
-	then
+		;;
+	9)
+		echo "$CNT"
 		echo "bad luck from Japan"
-	elif [ $CNT -eq 17 ];
-	then
+		;;
+	17)
+		echo "$CNT"
 		echo "bad luck from Italy"
-	fi
-
+		;;
+	*)
+		echo "$CNT"
+		;;
+	esac
 	(( CNT++ ))
 done
