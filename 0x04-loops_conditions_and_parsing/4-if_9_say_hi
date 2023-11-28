@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# displays best school 10 times and hi before the 9th
+
+CNT=1
+
+while [ $CNT -lt 11 ]
+do
+	echo "Best School"
+	if [ $CNT == 9 ];
+	then
+		echo "hi"
+	fi 
+	(( CNT++ ))
+done
