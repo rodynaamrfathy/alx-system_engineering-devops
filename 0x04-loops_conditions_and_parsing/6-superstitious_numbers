@@ -7,6 +7,8 @@
 CNT=1
 while [ $CNT -lt 21 ]
 do
+	echo "$CNT"
+
 	if [ $CNT -eq 4 ];
 	then
 		echo "bad luck from China"
@@ -16,8 +18,6 @@ do
 	elif [ $CNT -eq 17 ];
 	then
 		echo "bad luck from Italy"
-	else
-		echo "$CNT"
 	fi
 
 	(( CNT++ ))
