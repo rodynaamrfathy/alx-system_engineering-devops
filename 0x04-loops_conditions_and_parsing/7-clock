@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# prints time using while
+
+HOURS=0
+MINS=1
+
+while [ $HOURS -le 12 ]
+do
+	echo "Hour: $HOURS"
+	while [ $MINS -le 59 ]
+	do
+		echo "$MINS"
+		(( MINS ++ ))
+	done
+	(( MINS=1 ))
+	(( HOURS ++ ))
+done
