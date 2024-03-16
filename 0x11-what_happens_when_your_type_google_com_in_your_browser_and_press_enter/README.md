@@ -12,7 +12,7 @@ The visual representation of the process is depicted in the diagram below:
 ![Web Stack Flow Diagram](https://example.com/your-diagram-image.png)
 
 ### Contributing
-Contributions to enhance the explanation are encouraged! Please submit pull requests to the [What Happens When GitHub repository](https://github.com/alex/what-happens-when#the-g-key-is-pressed).
+Contributions to enhance the explanation are encouraged! Please submit pull requests to the What Happens When GitHub repository).
 
 ### Blog Post Outline
 
