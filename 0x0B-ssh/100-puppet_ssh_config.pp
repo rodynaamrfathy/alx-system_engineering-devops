@@ -1,14 +1,16 @@
-# File: 100-puppet_ssh_config.pp
+# Seting up my client config file
+include stdlib
 
 file_line { 'Turn off passwd auth':
-  path   => '/etc/ssh/ssh_config',  # Specify the path to your ssh client config file
-  line   => 'PasswordAuthentication no',
-  match  => '^#?PasswordAuthentication',
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
+  replace => true,
 }
 
-file_line { 'Declare identity file':
-  path   => '/etc/ssh/ssh_config',  # Specify the path to your ssh client config file
-  line   => 'IdentityFile ~/.ssh/school',
-  match  => '^#?IdentityFile',
+file_line { 'Delare identity file':
+  ensure => present,
+  path   => '/etc/ssh/ssh_config',
+  line   => '     IdentityFile ~/.ssh/school',
+  replace => true,
 }
-
