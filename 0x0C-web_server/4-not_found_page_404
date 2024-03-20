@@ -1,6 +1,7 @@
 
 
 
+
 #!/usr/bin/env bash
 # sets up a new 404 error page
 sudo apt-get update
