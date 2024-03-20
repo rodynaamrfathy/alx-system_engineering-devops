@@ -1,31 +1,31 @@
 #!/usr/bin/env bash
-# Installs, configures, and starts the server
+# Configures Nginx to redirect /redirect_me to another page with a "301 Moved Permanently" status code
 
+# Install Nginx
 apt-get update
 apt-get -y install nginx
-sudo ufw allow 'Nginx HTTP'
-mkdir -p /var/www/html/
-sudo chmod -R 755 /var/www
-echo 'Hello World!' > /var/www/html/index.html
-SERVER_CONFIG=\
-"server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-	root /var/www/html;
-	index index.html index.htm index.nginx-debian.html;
-	server_name _;
-	location / {
-		try_files \$uri \$uri/ =404;
-	}
-	if (\$request_filename ~ redirect_me){
-		rewrite ^ https://sketchfab.com/bluepeno/models permanent;
-	}
+
+# Define the redirection configuration
+SERVER_CONFIG="server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+    location /redirect_me {
+        return 301 https://www.example.com/new_page;
+    }
 }"
 
-bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+# Apply the server configuration
+echo "$SERVER_CONFIG" > /etc/nginx/sites-enabled/default
 
-if [ "$(pgrep -c nginx)" -le 0 ]; then
-	service nginx start
-else
-	service nginx restart
-fi
+# Test Nginx configuration
+nginx -t
+
+# Reload Nginx to apply changes
+systemctl reload nginx
+
